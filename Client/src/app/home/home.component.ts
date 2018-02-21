@@ -32,4 +32,20 @@ export class HomeComponent implements OnInit {
   goNew(){
     this._router.navigateByUrl('/new');
   }
+  removeBook(id){
+    this._httpService.remove(id).subscribe(data=>{
+      if(data['errors'])
+        console.log(data);
+      else 
+        this.getAllBooks();      
+    })
+  }
+  likeBook(id){
+    this._httpService.increse(id).subscribe(data=>{
+      if(data['errors'])
+        console.log(data);
+      else 
+        this.getAllBooks();  
+    })
+  }
 }

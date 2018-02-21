@@ -30,7 +30,7 @@ module.exports={
         })
     },
     edit:(req,res)=>{
-        Book.update({_id:req.params.id},req.body,(err,results)=>{
+        Book.update({_id:req.params.id},req.body,{runValidators: true},(err,results)=>{
             if(err)
                 res.json(err);
             else
@@ -45,5 +45,14 @@ module.exports={
                 res.json({message:'Success delete a book'});
             }        
         })
+    },
+    increment:(req,res)=>{
+        Book.update({_id:req.params.id},{ $inc:{like:1}},(err,results)=>{
+            if(err)
+                res.json(err);
+            else
+                res.json({message:'Success increase by 1'});     
+        })
+
     }
 }

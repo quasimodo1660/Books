@@ -17,7 +17,10 @@ module.exports=function(app){
     })
     app.delete('/books/:id',(req,res)=>{
         books.remove(req,res)
-    });
+    })
+    app.put('/books/inc/:id',(req,res)=>{
+        books.increment(req,res)
+    })
     app.all('*',(req,res,next)=>{
         console.log('here');
         res.sendFile(path.resolve('./Client/dist/index.html'))

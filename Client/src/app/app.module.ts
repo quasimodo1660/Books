@@ -8,13 +8,15 @@ import { NewComponent } from './new/new.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { EditComponent } from './edit/edit.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewComponent,
     HomeComponent,
-    EditComponent
+    EditComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

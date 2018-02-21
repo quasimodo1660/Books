@@ -14,4 +14,13 @@ export class HttpService {
   getOne(id){
     return this._http.get('/books/'+id)
   }
+  update(id,book){
+    return this._http.put('/books/'+id,book)
+  }
+  remove(id){
+    return this._http.delete('/books/'+id)
+  }
+  increse(id){
+    return this._http.put('/books/inc/'+id,'')
+  }
 }

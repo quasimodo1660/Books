@@ -4,6 +4,7 @@ import { NewComponent } from '../new/new.component'
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { EditComponent } from '../edit/edit.component';
+import { ReviewComponent } from '../review/review.component';
 
 
 const routes:Routes = [
@@ -11,6 +12,7 @@ const routes:Routes = [
   { path: 'home',component:HomeComponent},
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'edit/:id',component:EditComponent},
+  { path: 'review/:id',component:ReviewComponent},
   { path: '**', redirectTo: '/home'}
 ];
 

@@ -23,7 +23,7 @@
                 <td>{{book.description}}</td>
                 <td>{{book.star}}</td>
                 <td>{{book.like}}</td>
-                <td><span><a [routerLink]="['/edit',book._id]">Edit</a>&nbsp;&nbsp;</span><a (click)='removeBook(book._id)'>Delete</a></td>
+                <td><a [routerLink]="['/review',book._id]">Reviews</a>&nbsp;&nbsp;<a (click)='likeBook(book._id)'>Like</a>&nbsp;&nbsp;<a [routerLink]="['/edit',book._id]">Edit</a>&nbsp;&nbsp;<a (click)='removeBook(book._id)'>Delete</a></td>
               </tr>
             </ng-container>
             </tbody>
