@@ -1,0 +1,36 @@
+<div class='container'>
+    <div class='row'>
+      <button class='btn btn-primary pull-right' [routerLink]="['/new']">Add a book</button> 
+      
+    </div>
+    <div class='row'>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">description</th>
+                <th scope="col">Overall rating</th>
+                <th scope='col'>Likes</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor='let book of books;let i =index'>
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{book.title}}</td>
+                <td>{{book.description}}</td>
+                <td>{{book.star}}</td>
+                <td>{{book.like}}</td>
+                <td><span><a [routerLink]="['/edit',book._id]">Edit</a>&nbsp;&nbsp;</span><a (click)='removeBook(book._id)'>Delete</a></td>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+
+
+
+    </div>
+</div>
+   
