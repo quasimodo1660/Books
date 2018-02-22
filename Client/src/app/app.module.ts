@@ -9,6 +9,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { EditComponent } from './edit/edit.component';
 import { ReviewComponent } from './review/review.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms'
+
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { ReviewComponent } from './review/review.component';
     ReviewComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    ReactiveFormsModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

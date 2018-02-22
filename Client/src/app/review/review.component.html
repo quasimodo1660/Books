@@ -1,3 +1,69 @@
-<p>
-  review works!
-</p>
+<div class='container'>
+  <a [routerLink]="['/home']">Home</a>
+<div class='row'>
+  <h2>Book title: {{newBook.title}}</h2>
+  <h3>Description: {{newBook.description}}</h3>
+</div>
+<div class='row'>
+    <table class="table">
+      <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Review</th>
+            <th scope="col">Rating</th>
+            <th scope='col'>Created at</th>
+            <th scope='col'>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor='let v of newBook.review;let i =index'>
+          <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{v.reader}}</td>
+            <td>{{v.note}}</td>
+            <td>{{v.stars}}</td>
+            <td>{{v.created_at | date:'yyyy-MMM-dd,EEEE'}}</td>
+            <td><a (click)='editReview(i)'>Edit</a>&nbsp;&nbsp;<a (click)='deleteReview(v)'>Delete</a></td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+  <div class='row'>
+          <form class="needs-validation" (submit)="onSubmit()" novalidate>
+              <div class="form-group">
+                  <label for="validationTooltip01">Name:</label>
+                  <input type="text" id="validationTooltip01" class="form-control" name='review.reader' [(ngModel)]='review.reader'>
+                  <ng-container *ngIf="errors">
+                      <div class="invalid-tooltip" style="color:red">
+                          {{errors.errors.review.errors.reader.message}}
+                      </div>
+                  </ng-container>
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputPassword1">Review:</label>
+                  <textarea class="form-control" name='review.note' [(ngModel)]='review.note'></textarea>
+                  <ng-container *ngIf="errors">
+                      <div class="invalid-tooltip" style="color:red">
+                          {{errors.errors.review.errors.note.message}}
+                      </div>
+                  </ng-container>
+              </div>
+              <div>
+                  <ngb-rating name='review.stars' [(ngModel)]='review.stars' [rate]="3"></ngb-rating>
+              </div>
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">Stars</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name='review.stars' [(ngModel)]='review.stars' >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              <button type="submit" class="btn btn-primary" >{{flag}}</button> 
+          </form>
+  </div>
+</div>
+</div>

@@ -10,19 +10,19 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class NewComponent implements OnInit {
   newBook:any;
   errors='';
+  date1:any;
   constructor(
     private _httpService:HttpService,
     private _router:Router,
   ) { }
 
   ngOnInit() {
-    this.newBook={title:"",description:""};
+    this.newBook={title:"",description:"",pubicDate:""};
   }
   onSubmit(){
-    if('id' in this.newBook){
+      this.newBook['pubicDate']=new Date(this.date1.year,this.date1.month,this.date1.day);
+      console.log(this.date1);
       console.log(this.newBook);
-    }
-    else{
       this._httpService.addBook(this.newBook).subscribe(data=>{
         if(data['errors']){
           console.log(data);
@@ -30,9 +30,8 @@ export class NewComponent implements OnInit {
         }
         else{
           this.newBook={title:"",description:""};
-          this._router.navigate(['/home'])
+          // this._router.navigate(['/home'])
         }      
       })
     }
-  }
 }

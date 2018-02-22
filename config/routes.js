@@ -21,6 +21,9 @@ module.exports=function(app){
     app.put('/books/inc/:id',(req,res)=>{
         books.increment(req,res)
     })
+    app.post('/review/:id',(req,res)=>{
+        books.addReview(req,res)
+    })
     app.all('*',(req,res,next)=>{
         console.log('here');
         res.sendFile(path.resolve('./Client/dist/index.html'))

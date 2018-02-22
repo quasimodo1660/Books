@@ -9,9 +9,10 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
-                <th scope="col">description</th>
-                <th scope="col">Overall rating</th>
+                <th scope="col">Description</th>
+                <th scope="col">Average rating</th>
                 <th scope='col'>Likes</th>
+                <th scope='col'>Public Date</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -23,14 +24,12 @@
                 <td>{{book.description}}</td>
                 <td>{{book.star}}</td>
                 <td>{{book.like}}</td>
+                <td>{{book.pubicDate | date:'dd-MMM, yyyy'}}</td>
                 <td><a [routerLink]="['/review',book._id]">Reviews</a>&nbsp;&nbsp;<a (click)='likeBook(book._id)'>Like</a>&nbsp;&nbsp;<a [routerLink]="['/edit',book._id]">Edit</a>&nbsp;&nbsp;<a (click)='removeBook(book._id)'>Delete</a></td>
               </tr>
             </ng-container>
             </tbody>
           </table>
-
-
-
     </div>
 </div>
    

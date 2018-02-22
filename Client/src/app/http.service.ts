@@ -23,4 +23,7 @@ export class HttpService {
   increse(id){
     return this._http.put('/books/inc/'+id,'')
   }
+  addReview(id,review){
+    return this._http.post('/review/'+id,review)
+  }
 }

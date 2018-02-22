@@ -54,5 +54,14 @@ module.exports={
                 res.json({message:'Success increase by 1'});     
         })
 
-    }
+    },
+    addReview:(req,res)=>{
+        Book.update({_id:req.params.id},{ $push: {review:req.body}},{runValidators: true},(err,results)=>{
+            if(err)
+            res.json(err);
+        else
+            res.json({message:'Success add a review'});   
+        })
+    },
+  
 }

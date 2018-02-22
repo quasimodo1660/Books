@@ -12,9 +12,13 @@
                 <label for="exampleInputPassword1">Description:</label>
                 <textarea class="form-control" name='newBook.description' [(ngModel)]='newBook.description'></textarea>
             </div>
+            <div class='form-group'>
+                <ngb-datepicker [(ngModel)]="date1" name='date1'></ngb-datepicker>
+            </div>
             <button type="submit" class="btn btn-primary" >Submit</button> 
             <button class="btn btn-primary" [routerLink]="['/home']">Cancel</button>
         </form>
-
+        {{newBook|json}}
+        {{date1|json}}
     </div>
 </div>
